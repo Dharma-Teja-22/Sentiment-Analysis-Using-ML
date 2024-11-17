@@ -1,0 +1,174 @@
+<html>
+    <head>
+	<style>
+    .P1{
+      padding: 40px;
+      width: 420px;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    img{
+      height: 280px;
+      width: 350px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .P1:hover{
+      transform: scale(1.2);
+    }
+    .Products{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      
+    }
+    a{
+      text-decoration: none;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+    }
+    #btn{
+            border: 2px #f77825 solid;
+            border-radius: 10px;
+            padding: 15px;
+            color: #f77825;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+    #btn:hover{
+            border-color: #f7792558;
+            color: #f77825a8;
+        }
+    
+table, th, td { 
+  border: 1px solid black;
+}
+.c11{
+  border: 3px solid blue;
+}
+button{
+  justify-content: center;
+  align-items: center;
+  border: 2px #333 solid;
+  font-weight: bold;
+  width: 200px;
+  padding: 4px;
+  background-color: #fff;
+  margin: none;
+  
+  transition: all 0.3s;
+}
+
+button:hover{
+  background-color: #6a6262;
+  color: #fff;
+  border: none;
+}
+.Results10{
+  text-align: justify;
+  padding: 0px 100px 0px 100px;
+}
+
+</style>
+        <title>{{ title }} Sentiment Analysis</title>
+        <!--link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body><div class="container c11" >
+	<div class="container-fluid p-5 bg-success text-white text-center">
+		<h1>Sentiment Analysis </h1>
+		<p>A product sentiment review web app for <b>"Sentiment Analysis" </b>model created using Scikit-learn.</p> 
+    
+	</div>
+  <div class="Products">
+    <div class="P1">
+      <img src="https://th.bing.com/th/id/OIP.-MzI36HlF9SvunAJGTeIXgHaEj?rs=1&pid=ImgDetMain" height="280px;" width="350px;">
+      <b>Professional Hair Care Products For Men</b>
+      <a id="btn" href="#name" onclick="alert('Enter Reviews for Product-1!');">Product-1</a>
+    </div>
+    <div class="P1">
+      <img src="https://th.bing.com/th/id/OIP.Pu0frP4Dxzt5Pi4gWlumewHaE8?rs=1&pid=ImgDetMain" height="280px;" width="350px;">
+      <b> Best Wathes for men</b>
+      <a id="btn" href="#name" onclick="alert('Enter Reviews for Product-2!');">Product-2</a>
+    </div>
+    <div class="P1">
+      <img src="https://mobileshark.co.uk/blog/wp-content/uploads/ADBS_281641708-1-1024x683.jpeg" height="280px;" width="350px;">
+      <b>Mobile Accessories</b>
+      <a id="btn" href="#name" onclick="alert('Enter Reviews for Product-3!');">Product-3</a>
+    </div>
+  </div>
+
+        <!--h1 align="center">A machine learning apporch for product review  <b>"Sentiment Analysis" </b>model created using Scikit-learn </h1-->
+		<br><br><div align="center">
+			<form method="POST">
+        <textarea name="text" placeholder="Enter Your Name : ...." rows="1" cols="109" required id="name"></textarea><br><br>
+				<textarea name="text1" placeholder="Say Something: ...." rows="10" cols="109" required></textarea><br><br>
+
+				<input class="btn btn-success" type="submit"><br>
+			</form>
+		</div>
+        {% if final %}
+		
+<!--result start -->		
+      </br></br>  <div align="center">
+           </br>  </br>
+		   <h2 class="bg-success text-white">The Sentiment Analysis of '{{ text }}'</h2>
+		    is <br> <b>'{{ text1}}'</b>
+        <br>
+		   <h2>is {{ final *100}}% positive !</h2>
+			<h2>Score table</h2>
+
+
+<div class="container table-responsive-sm">
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>SENTIMENT METRIC</th>
+    <th>SCORE</th> 
+  </tr>
+  <tr>
+    <td>Positive</td>
+    <td>{{text2}}</td>
+    
+  </tr>
+  <tr>
+    <td>Neutral</td>
+    <td>{{text3}}</td>
+    
+  </tr>
+  <tr>
+    <td>Negative</td>
+    <td>{{text5}}</td>
+    
+  </tr>
+  <tr>
+    <td>Compound</td>
+    <td>{{text4}}</td>
+    
+  </tr>
+</table>
+<br>
+<h2>Previous Reviews</h2>
+<br>
+<pre><h4 class="Results10" >{{text10}}</h4><pre>
+</div>
+
+            {% else %}
+            <p></p>
+            {% endif %}
+        </div></br></br>
+
+<!--result end -->			
+		
+		
+  </div>  </body>
+</html>
+
